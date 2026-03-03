@@ -1,22 +1,32 @@
+Here’s an **updated and polished version** of your `README.md` with a few improvements for clarity, consistency, and formatting. I also added a section for the new `data/` folder and minor fixes to grammar and headings:
+
+---
+
 # Hospital_Management_System_Cpp
 
+A modular **Hospital Management System** project in C++ designed for collaborative development, allowing multiple developers to contribute efficiently.
+
+---
 
 ## **Project Structure**
 
 ```
+Hospital_Management_System_Cpp/
 ├─ include/        # Header files (.h/.hpp)
 ├─ src/            # Source files (.cpp)
-├─ data/           # date 
+├─ data/           # Data files (e.g., databases, CSVs)
+├─ build/          # Compiled objects (ignored in Git)
 ├─ CMakeLists.txt  # Build configuration
 └─ README.md       # Project documentation
 ```
 
 **Notes:**
 
-* `include/` → contains all headers
+* `include/` → contains all header files
 * `src/` → contains all implementation files
+* `data/` → contains project data files such as CSV or JSON
+* `build/` → contains compiled files (ignored in Git)
 * `tests/` → contains unit tests (Google Test recommended)
-* `build/` → folder for compiled files (ignored in Git)
 
 ---
 
@@ -68,6 +78,7 @@ git checkout -b feature/my-feature
    * Keep related functions in separate `.cpp` files
    * Update or add header files in `include/`
    * Write tests in `tests/` if possible
+
 4. **Commit changes** with descriptive messages:
 
 ```bash
@@ -85,12 +96,12 @@ To keep the project organized:
 
 1. **Modular Design**
 
-   * Each `.cpp` file should implement **one module or feature**.
-   * Corresponding `.h` header file must define the interface.
+   * Each `.cpp` file should implement **one module or feature**
+   * Corresponding `.h` header file must define the interface
 
 2. **Single Responsibility**
 
-   * Each function should do **one thing only**.
+   * Each function should do **one thing only**
 
 3. **Naming Conventions**
 
@@ -100,15 +111,15 @@ To keep the project organized:
 
 4. **Testing**
 
-   * Write tests for all new features in `tests/`.
+   * Write tests for all new features in `tests/`
 
 5. **No Global Variables**
 
-   * Use parameters or class members.
+   * Use parameters or class members
 
 6. **Code Review**
 
-   * Always create Pull Requests.
-   * Review code for readability, modularity, and correctness.
+   * Always create Pull Requests
+   * Review code for readability, modularity, and correctness
 
 ---
