@@ -1,7 +1,3 @@
-Here’s an **updated and polished version** of your `README.md` with a few improvements for clarity, consistency, and formatting. I also added a section for the new `data/` folder and minor fixes to grammar and headings:
-
----
-
 # Hospital_Management_System_Cpp
 
 A modular **Hospital Management System** project in C++ designed for collaborative development, allowing multiple developers to contribute efficiently.
