@@ -1,0 +1,7 @@
+<Solution>
+  <Configurations>
+    <Platform Name="x64" />
+    <Platform Name="x86" />
+  </Configurations>
+  <Project Path="Hospital_Management_System_Cpp/Hospital_Management_System_Cpp.vcxproj" Id="7630cd20-663f-41e4-8a27-c2a316a2e081" />
+</Solution>
