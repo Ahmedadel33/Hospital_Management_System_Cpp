@@ -2,24 +2,22 @@
 #include <iostream>
 #include <fstream>
 #include <string>
+#include <vector>
 #include <filesystem>
 
 using namespace std;
 
-
-
-class StorageManager
+class FileManager
 {
-private:
-	string DATA_FOLDER = "./storage/";
-	ofstream patients;
-	ofstream doctors;
-	ofstream appointments;
 public:
-	void savePatient() {}
-	void loadPatients() {}
-	void saveDoctor() {}
-	void loadDoctors() {}
-	void saveAppointment() {}
-};
+    vector<string> readAllLine(string path);
+    string readLine(string path,int index);
 
+    void writeAllLines(string path, vector<string> lines);
+    void writeToLine(string path, string line,int index);
+
+    void appendLine(string path, string line);
+
+    bool fileExists(string path);
+    void clearFile(string path);
+};
