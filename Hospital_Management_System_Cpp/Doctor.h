@@ -1,4 +1,3 @@
-
 #include "Person.h"
 using namespace std;
 #include <iostream>
@@ -17,4 +16,5 @@ public:
 	void Set_exper(int exper);
 	int get_exper();
 	void Desplay();
+	void display();
 };
