@@ -30,4 +30,5 @@ public:
 	void set_m_email(string email);
 	string get_email();
 
+	void Desplay();
 };

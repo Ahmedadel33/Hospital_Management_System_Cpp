@@ -50,3 +50,6 @@ void Person::set_m_email(string email) {
 string Person::get_email() {
 	return m_email;
 }
+void Person::Desplay() {
+	cout << "my name is  " << m_name << endl << " ID " << m_id << endl << m_age << "Years old " << endl << "gender is " << m_gender << endl << "My phone is " << m_phone << endl << "Email " << m_email << endl;
+}
