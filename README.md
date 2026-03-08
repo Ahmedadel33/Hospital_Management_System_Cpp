@@ -1,3 +1,7 @@
+Sure! Here’s a **clean, professional README** with the updated tasks and **Ahmad’s tasks replacing Mostfa’s**.
+
+---
+
 # Hospital Management System (Console-Based)
 
 A modular **Hospital Management System** project in C++ designed for collaborative development, allowing multiple developers to contribute efficiently.
@@ -25,25 +29,15 @@ Hospital_Management_System_Cpp/
 
 **Folder Details:**
 
-include/ → Contains all header files and class declarations
-
-models/ → Defines Patient, Doctor, Appointment entities
-
-repositories/ → Manages in-memory data and file interaction for each entity
-
-services/ → Contains HospitalService for business logic
-
-src/ → Contains all source files (.cpp)
-
-Implements methods declared in headers
-
-storage/ → Contains FileManager for file operations (read/write/append)
-
-data/ → Stores persistent patient, doctor, and appointment records (.txt files)
-
-CMakeLists.txt → Build system configuration
-
-README.md → Project documentation
+* `include/` → Contains all header files and class declarations
+* `models/` → Defines `Patient`, `Doctor`, `Appointment` entities
+* `repositories/` → Manages in-memory data and file interaction for each entity
+* `services/` → Contains `HospitalService` for business logic
+* `src/` → Implements methods declared in headers
+* `storage/` → Contains `FileManager` for file operations (read/write/append)
+* `data/` → Stores persistent patient, doctor, and appointment records (.txt files)
+* `CMakeLists.txt` → Build system configuration
+* `README.md` → Project documentation
 
 ---
 
@@ -109,12 +103,10 @@ git commit -m "Add feature X"
 
 ## **Code Architecture Rules**
 
-To keep the project organized:
-
 1. **Modular Design**
 
-   * Each `.cpp` file should implement **one module or feature**
-   * Corresponding `.h` header file must define the interface
+   * Each `.cpp` file implements **one module or feature**
+   * Corresponding `.h` header file defines the interface
 
 2. **Single Responsibility**
 
@@ -139,62 +131,117 @@ To keep the project organized:
    * Always create Pull Requests
    * Review code for readability, modularity, and correctness
 
+---
 
-### 1. Abdo - File Operations & Core Logic
+## **Task List**
 
-**Focus:** Handling persistent data storage without data loss. Reading, writing, searching, modifying, and deleting records from text files.
+### **1️⃣ Abdo – Storage & Repository Layer**
 
-* **Classes:** `FileHandler` / `DatabaseManager`
-* **Responsibilities:**
-* `saveRecord(Patient p)`
-* `searchRecord(String idOrName)`
-* `updateRecord(String idOrName, Patient updatedInfo)`
-* `deleteRecord(String id)`
-* `fetchAllRecords()`
+**Focus:** Handle all file operations and data persistence.
 
+**Tasks:**
 
+* Implement **FileManager**:
 
-### 2. Ahmad - Sorting, Filtering & Financials
+  * `readAllLine(path)`
+  * `readLine(path, index)`
+  * `writeAllLines(path, vector<string> lines)`
+  * `writeToLine(path, string line, index)`
+  * `appendLine(path, string line)`
+  * `fileExists(path)`
+  * `clearFile(path)`
 
-**Focus:** Managing the logic for displaying lists of patients based on specific criteria and calculating hospital expenditures.
+* Implement **Repositories**:
 
-* **Classes:** `RecordManager`, `FinancialRecord`
-* **Responsibilities:**
-* List patients alphabetically.
-* List patients by category (Emergency vs. O.P.D.).
-* List patients by a specific admission date.
-* Calculate `totalCharge`, `totalDeposited`, and `totalMoneyToReturn`.
+  * `PatientRepository`: add, update, delete, fetch patient records
+  * `DoctorRepository`: add, fetch doctor records
+  * `AppointmentRepository`: add, fetch, cancel appointments
 
-
-
-### 3. Mostfa - Data Models, UI & Menus
-
-**Focus:** Building the blueprint for the data and creating the console user interface, formatting the outputs exactly as required.
-
-* **Classes:** `Patient`, `UserInterface`
-* **Responsibilities:**
-* Define the `Patient` properties (Name, ID, Age, Sex, Disease, Room, etc.).
-* Build `showWelcomeScreen()` and `showMainMenu()`.
-* Handle user inputs and display success/error messages (e.g., "No records available").
-
-
+* Ensure repositories **use FileManager** for all file I/O.
 
 ---
 
-## System Architecture
+### **2️⃣ Ahmad – Services, Models & Console UI**
 
-* **`Patient`**: Base data model holding personal and medical details.
-* **`FinancialRecord`**: Data model attached to a patient holding billing details.
-* **`UserInterface`**: Handles all `cin` and `cout` operations and menu navigation.
-* **`RecordManager`**: Handles sorting and filtering arrays/lists of `Patient` objects.
-* **`FileHandler`**: Handles all file stream operations (`ifstream`, `ofstream`).
+**Focus:** Define system data, implement logic, and build the console interface.
+
+**Tasks:**
+
+* Implement **Data Models**:
+
+  * `Person` (base class)
+  * `Patient`
+  * `Doctor`
+  * `Appointment`
+  * Add attributes (ID, name, age, specialization, fees, dates, etc.)
+  * Implement `toString()` / `fromString()` for file storage
+
+* Implement **HospitalService**:
+
+  * Patient management: register, update, remove, list
+  * Doctor management: add, list, find
+  * Appointment management: book, cancel, list by doctor/patient
+
+* Implement **Console UI**:
+
+  * Welcome screen, main menu, sub-menus
+  * Handle user inputs (`cin`) and display outputs (`cout`)
+  * Connect UI to `HospitalService` for all menu options
+  * Validate inputs and display success/error messages
+
+* Implement **sorting and filtering logic**:
+
+  * Sort patients alphabetically
+  * Filter patients by category or date
+  * Filter doctors by specialization
 
 ---
 
-## Project Requirements Checklist
+### **3️⃣ Ahmad – Services & Business Logic**
 
-* [ ] Use Object-Oriented Programming (OOP) concepts.
-* [ ] Implement appropriate Data Structures.
-* [ ] Draw and submit a UML Class Diagram before coding.
-* [ ] Create a GitHub repository and push all code.
+**Focus:** Application logic and operations on the system.
+
+**Tasks:**
+
+* Implement **HospitalService** to coordinate repositories
+* Ensure business rules are applied (e.g., no double booking, valid doctor/patient IDs)
+* Provide methods to query, filter, and sort records
+* Handle interactions between repositories and UI
+
+---
+
+## **System Architecture**
+
+```
+Console UI
+    ↓
+HospitalService
+    ↓
+Repositories
+    ↓
+FileManager
+    ↓
+Text Files
+```
+
+**Classes by Layer:**
+
+| Layer        | Classes                                                          |
+| ------------ | ---------------------------------------------------------------- |
+| Models       | `Person`, `Patient`, `Doctor`, `Appointment`                     |
+| Storage      | `FileManager`                                                    |
+| Repositories | `PatientRepository`, `DoctorRepository`, `AppointmentRepository` |
+| Services     | `HospitalService`                                                |
+| UI           | `ConsoleUI`                                                      |
+
+---
+
+## **Project Requirements Checklist**
+
+* [ ] Use Object-Oriented Programming (OOP) concepts
+* [ ] Implement appropriate data structures
+* [ ] Draw and submit UML Class Diagram before coding
+* [ ] Implement file persistence via `FileManager`
+* [ ] Implement sorting, filtering, and appointment booking
+* [ ] Create a GitHub repository and push all code
 
